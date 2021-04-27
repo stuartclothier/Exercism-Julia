@@ -1,4 +1,5 @@
 using Test
+start = time()
 
 include("bob.jl")
 
@@ -87,3 +88,5 @@ end
         @test bob(question) == response[:forceful_question]
     end 
 end
+elapsed = time()-start
+print(elapsed)

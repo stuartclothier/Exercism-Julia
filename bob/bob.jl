@@ -1,26 +1,18 @@
 function bob(stimulus)
 
-    response = Dict(
-        :question => "Sure.",
-        :yelling => "Whoa, chill out!",
-        :silence => "Fine. Be that way!",
-        :misc => "Whatever.",
-        :forceful_question => "Calm down, I know what I'm doing!",
-)
-
-    if stimulus == uppercase(stimulus)
+    stimulus = strip(stimulus)
+    
+    if isempty(stimulus)
+        "Fine. Be that way!"
+    elseif stimulus == uppercase(stimulus) && any(isuppercase, stimulus)
         if stimulus[end] == '?'
             "Calm down, I know what I'm doing!"
         else
             "Whoa, chill out!"
-        end
+        end 
     elseif stimulus[end] == '?'
-    "Sure."
-    elseif length(stimulus) == 0
-        "Fine. Be that way!"
+        "Sure."        
     else
         "Whatever."
     end
 end
-
-print(bob("HELLO?"))
