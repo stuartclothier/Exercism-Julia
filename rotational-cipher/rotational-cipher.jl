@@ -1,21 +1,23 @@
-function rotate(ROT, string)
-    
-    codebase = [i for i in 1:126]
-    [(codebase[i + Int('A')], codebase[i + Int('a')]) = 
-    (Int('A') + (i + ROT) % 26, Int('a') + (i + ROT) % 26) 
-    for i in 0:25];
-
-    Coded_array = [Char(codebase[Int(each)]) for each in string]
-    if typeof(string) == String
-        String(Coded_array)
+function rotate(ROT, str::Char)
+    if str in 'a':'z'
+        str + ROT  <= 'z' ? str + ROT :  str + ROT - 26
+    elseif str in 'A':'Z'
+        str + ROT  <= 'Z' ? str + ROT :  str + ROT - 26
     else
-        Char(Coded_array[1])
+        str
     end
 end
 
+function rot(ROT,str::Char)
+    str + ROT
+end
+
+function rotate(ROT, str::String)
+    map(each -> rotate(ROT, each), str)
+end
+    
 for i = 0:26
     @eval macro $(Symbol("R$(i)_str"))(s)
         rotate($i, s)
     end
 end
-
