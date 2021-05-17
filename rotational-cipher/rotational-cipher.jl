@@ -8,10 +8,6 @@ function rotate(ROT, str::Char)
     end
 end
 
-function rot(ROT,str::Char)
-    str + ROT
-end
-
 function rotate(ROT, str::String)
     map(each -> rotate(ROT, each), str)
 end
