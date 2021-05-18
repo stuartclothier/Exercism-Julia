@@ -1,10 +1,10 @@
-function rotate(ROT, str::Char)
-    if str in 'a':'z'
-        str + ROT  <= 'z' ? str + ROT :  str + ROT - 26
-    elseif str in 'A':'Z'
-        str + ROT  <= 'Z' ? str + ROT :  str + ROT - 26
+function rotate(ROT, c::Char)
+    if 'a' <= c <= 'z'
+        (c - 'a' + ROT) % 26 + 'a'
+    elseif 'A' <= c <= 'Z'
+        (c - 'A' + ROT) % 26 + 'A'
     else
-        str
+        c
     end
 end
 

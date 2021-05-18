@@ -29,10 +29,10 @@ end
 
 # function rotate(ROT, str::Char)
 #     if 'a' <= str <= 'z'
-#         Char((Int(str) - 97 + ROT) % 26 + 97) 
+#         Char(str - 97 + ROT) % 26 + 97) 
         
 #     elseif 'A' <= str <= 'Z'
-#         Char((Int(str) - 65 + ROT) % 26 + 65)
+#         Char(str - 65 + ROT) % 26 + 65)
 #     else
 #         str
 #     end
